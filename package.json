@@ -4,16 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
-    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js"
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
+    "test": "env-cmd -f ./config/test.env jest --watch --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@img/sharp-win32-x64": "^0.33.0",
-    "@sendgrid/mail": "^8.1.0",
     "bcryptjs": "^2.4.3",
     "express": "^4.16.4",
     "jsonwebtoken": "^9.0.2",
@@ -21,11 +23,14 @@
     "mongodb": "^3.1.10",
     "mongoose": "^5.3.16",
     "multer": "^1.4.5-lts.1",
-    "sharp": "^0.33.0",
+    "sharp": "^0.33.1",
+    "util": "^0.12.5",
     "validator": "^10.9.0"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
-    "nodemon": "^3.0.1"
+    "jest": "^23.6.0",
+    "nodemon": "^3.0.1",
+    "supertest": "^3.4.1"
   }
 }
